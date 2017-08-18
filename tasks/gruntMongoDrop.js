@@ -25,6 +25,8 @@ module.exports = function (grunt) {
 
         grunt.verbose.writeln('dropping: ' + options.databases[i].dbname);
 
+        grunt.log.writeln('Connecting to: ' + 'mongodb://' + options.databases[i].host + '/' + options.databases[i].dbname);
+
         var connection = mongoose.createConnection('mongodb://' + options.databases[i].host + '/' + options.databases[i].dbname, function (err) {
           if (err) {
             grunt.log.writeln('Could not connect to mongodb, check if mongo is running');
